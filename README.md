@@ -2,7 +2,7 @@
 
 ## Getting started
 
--- To build a project
+-- To build a project:
 **npm build**
 
 -- For launch localhost:
