@@ -9,3 +9,17 @@
 -- For launch localhost:
 
 **npm run dev**
+
+## Usage  technologies 
+
+### Webpack
+
+Module:
+
+- MiniCssExtractPlugin
+- Babel 7
+
+
+
+
+
