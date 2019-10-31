@@ -4,12 +4,12 @@
 
 -- To build a project:
 ```bash
-**npm build**
+npm build
 ```
 
 -- For launch localhost:
 ```bash
-**npm run dev**
+npm run dev
 ```
 
 ## Usage  technologies 
