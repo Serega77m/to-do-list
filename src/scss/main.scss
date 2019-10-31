@@ -1,0 +1,289 @@
+// Variables
+$border: 2px solid black;
+
+// Mixins
+@mixin button {
+    height: 35px;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    border: $border;
+    border-radius: 7px;
+    background: #fff;
+    &:hover {
+        background: rgb(220,220,220);
+    }
+}
+
+@mixin margin-board {
+    margin: { 
+        top: 20px;
+        left: 20px;
+        bottom: 20px;
+    }
+
+}
+@mixin input_select {
+    width: 250px;
+    border: $border;
+    margin: 0;
+    height: 35px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+html,
+body {
+    margin: 0;
+    box-sizing: border-box; 
+    width:100%;
+    height:100%;
+    min-height:100%;
+    overflow: hidden;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1 1 auto;
+    overflow-y: scroll;
+}
+
+
+header {
+    border-bottom: 3px solid black; 
+    flex: 0 0 auto;
+    .header-name {
+        font-size: 25px;
+        font-weight: bold;
+        @include margin-board;
+            
+    } 
+}
+
+footer {
+    border-top: 3px solid black;
+    flex: 0 0 auto;
+    .name__footer {
+        font-size: 25px;
+        font-weight: bold;
+        @include margin-board;
+    }
+
+}
+
+select {
+    background:url('https://img.icons8.com/material/2x/thick-arrow-pointing-down.png');
+	background-repeat:no-repeat;
+	background-size:16px 17px;
+    background-position:right 0px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-left:15px;
+
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    margin-top: 60px;
+    input, 
+    select {
+        @include input_select;
+     }
+    button {
+        width: 150px;
+        @include button;
+    }
+    
+    &__search {
+        input {
+            padding: 0 35px;
+            background-image: url(http://s1.iconbird.com/ico/2013/1/569/w24h24138981479606magnify.png);   
+            background-repeat: no-repeat; 
+            background-position: 4px; 
+            outline: none;    
+            }
+        }
+
+    &__priority,
+    &__button,
+    &__sort-status {
+        padding-left: 20px;
+        margin: 0;
+    } 
+ 
+}
+/// START TASK
+.list-tasks {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2vw;
+    margin: 0 250px;
+    margin-top: 50px;
+
+
+    .task {
+        display: flex;
+        flex-flow: column;
+        border: $border;
+        width: 200px;
+        height: auto;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: left;
+        position: relative;
+
+        .checkMark {
+            position: absolute;
+            text-decoration: none;
+            background-image: url(http://s1.iconbird.com/ico/2013/1/569/w18h191389814836117todo.png);
+            background-repeat: no-repeat;
+            top:-10px;
+            right: -6px;
+            width: 18px;
+            height: 18px;
+            background-color: white;
+            visibility: hidden;
+        }
+
+        &__title,
+        &__description {
+            margin-left: 20px;
+            padding-top: 35px;
+            margin-right:20px;
+            
+        }
+        
+        &__description {
+            word-wrap: break-word;
+        }
+        
+        &__button {
+            display: flex;
+            margin-bottom:20px;
+            margin-left: 20px;
+            bottom: 10px;
+            margin-right:20px;
+            margin-top:20px;
+            
+            .more { 
+                padding: 4px;
+                border-radius: 5px;
+                border: 1px solid black;
+                background: 0;
+                
+            }
+        }
+        
+        .priority_of_task {
+            border: 1px dashed black;
+            width: 50px;
+            height: 25px;
+            border-radius: 5px;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+
+        }
+          
+          .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-left: auto;
+          }
+          
+          .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 80px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+          }
+          
+          .dropdown-content {
+            .done, 
+            .delete, 
+            .edit {
+                color: black;
+                padding: 12px 16px ;
+                text-decoration: none;
+                display: block;
+                font-size: 12px;
+                cursor: pointer;
+            }
+         }
+          
+         .dropdown-content a:hover {background-color: #ddd; }
+
+          .dropdown:hover .dropdown-content {display: block;}
+
+          .dropdown:hover .more {background-color: grey;}
+    }
+
+}
+///  END TASK
+
+///// START MODAL
+.wrapper, .modal, .modalEdit {
+    visibility: hidden;
+  }
+  
+.wrapper {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    bottom: 70px;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+.modal, .modalEdit {
+    display: flex;
+    position: fixed;
+    left: 50%;
+    top:25%;
+    transform: translate(-50%);
+    z-index: 99;
+    padding: 15px;
+    background-color: white;
+    flex-flow: column;
+    border: 1px solid black;
+        &__button {
+            margin-top: 55px;
+        }
+        &__title {
+            margin-top: 20px;
+        }
+    input {
+        width: calc(100% - 4px);
+        padding: 0;
+    }    
+    button {
+        width: 100px;
+        @include button;
+
+    }
+    select {
+        padding-bottom: 2px;
+    }
+    textarea {
+        &:focus::-webkit-input-placeholder {
+            color: transparent
+        }
+           
+    }
+    ::placeholder {
+        padding: 2em 0;
+    }
+  }
+
+  ///// END MODAL

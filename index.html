@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/dist/app.css">
+    <title>to-do</title>
+</head>
+<body>
+    <header>
+        <div class="header-name">TODOList</div>
+    </header>
+    <div class="content">
+        <div class="form">
+            <div class="form__search">
+                <input type="text" placeholder="search by title" id="search-field">
+            </div>
+            <div class="form__sort-status">
+                <select name="" id="status">
+                    <option value="all">all</option>
+                    <option value="open">open</option>
+                    <option value="done">done</option>
+                </select>
+            </div>
+            <div class="form__priority">
+                <select name="" id="priority">
+                    <option value="all">all</option>
+                    <option value="high">high</option>
+                    <option value="normal">normal</option>
+                    <option value="low">low</option>
+                </select>
+            </div>
+            <div class="form__button">
+                <button id="Button">Create</button>
+            </div> 
+        </div>
+        <div class="list-tasks">
+               
+                 
+         
+        </div>
+        <div class="wrapper"></div>
+        <div class="modal">
+            <div class="modal__title">
+                Title:
+            </div>
+            <div class="modal__input">
+                <input name="modal_title"type="text" placeholder="Title" id="title-field" >
+            </div>
+            <div class="modal__description">
+                Description:
+            </div>
+            <textarea placeholder="Description" id="description-field" cols="20" rows="5" ></textarea>
+            <div class="modal__priority">
+                Priority:
+            </div>
+            <select name="" id="priority-modal">
+                <option value="high">High</option>
+                <option value="normal">Normal</option>
+                <option value="low">Low</option>
+            </select>
+            <div class="modal__button">
+                <button id="cancel">Cancel</button>
+                <button id="create">Save</button>
+            </div>
+
+
+        </div>
+        <div class="modalEdit">
+            <div class="modal__title">
+                Title:
+            </div>
+            <div class="modal__input">
+                <input name="modal_title"type="text" placeholder="Title" id="title-field-Edit" >
+            </div>
+            <div class="modal__description">
+                Description:
+            </div>
+            <textarea placeholder="Description" id="description-field-Edit" cols="20" rows="5" ></textarea>
+            <div class="modal__priority">
+                Priority:
+            </div>
+            <select name="" id="priority-modal-Edit">
+                <option value="high">High</option>
+                <option value="normal">Normal</option>
+                <option value="low">Low</option>
+            </select>
+            <div class="modal__button">
+                <button id="cancel-Edit">Cancel</button>
+                <button id="createEdit">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="name__footer">
+            Moheliuk Serhii
+        </div>
+    </footer>
+
+    <script src="/dist/app.js"> </script>
+</body>
+</html>
