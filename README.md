@@ -7,7 +7,7 @@
 npm build
 ```
 
--- For launch localhost:
+-- For launch:
 ```bash
 npm run dev
 ```
